@@ -91,8 +91,10 @@ console.log(instructor) //hitesh
 //     "courseInstructor":"hitesh"
 // }
 
-[
-    {},
-    {},
-    {},
-]
+// [
+//     {},
+//     {},
+//     {},
+// ]
+
+// if you need api go to https://randomuser.me
