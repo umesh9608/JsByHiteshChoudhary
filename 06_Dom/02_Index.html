@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Dom</title>
+    <style>
+      body {
+        background-color: "black";
+        color: "white";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="day">monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thurusday</div>
+    </div>
+
+    <script>
+        // traverse the dom
+      const prent = document.querySelector(".parent");
+      // console.log(prent);
+      // console.log(prent.children);
+      // console.log(prent.firstElementChild)
+      // console.log(prent.children[3].innerHTML);
+
+    //   for (let i = 0; i < prent.children.length; i++) {
+    //     console.log(prent.children[i].innerHTML);
+    //   }
+
+      //add style change
+    //   parent.style.backgroundColor = "red";
+    //   console.log(parent.firstElementChild);
+    //   console.log(parent.lastElementChild);
+      
+
+    //move child to parent
+      const dayOne = document.querySelector(".day")
+    //   console.log(dayOne);
+    //   console.log(dayOne.parentElement);
+    //   console.log(dayOne.nextElementSibling);
+
+      console.log("NODES: ", prent.childNodes);
+    </script>
+  </body>
+</html>

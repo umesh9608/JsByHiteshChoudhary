@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+
+  <script>
+    function addLanguage(languageName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${languageName}`;
+      document.querySelector(".language").appendChild(li);
+    }
+
+    addLanguage("Python");
+    addLanguage("Java");
+
+    function addOptLanguage(languageName) {
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(languageName));
+      document.querySelector(".language").appendChild(li);
+    }
+
+    addOptLanguage("C++");
+
+    //edit
+    const secondLang = document.querySelector("li:nth-child(2)"); //select second li
+    //    secondLang.innerHTML = "C#";
+    const newLi = document.createElement("li"); //create new li
+    newLi.innerHTML = "MOJO"; //add text
+    secondLang.replaceWith(newLi); //replace second li with new li
+
+    //edit
+    const firstLang = document.querySelector('li:first-child'); //select first li
+    firstLang.outerHTML = '<li>JavaScript</li>'; //replace first li with new li
+
+
+    //remove
+    const lastLang = document.querySelector("li:last-child"); //select last li
+    lastLang.remove(); //remove last li
+  </script>
+</html>
