@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+
+      .canvas {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* light background to ensure visibility */
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 18px;
+        font-weight: normal;
+      }
+
+      .button {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: transform 0.2s ease;
+        border: 2px solid #ccc;
+      }
+
+      #grey {
+        background-color: grey;
+      }
+
+      #white {
+        background-color: white;
+      }
+
+      #blue {
+        background-color: blue;
+      }
+
+      #yellow {
+        background-color: yellow;
+      }
+
+      .button:hover {
+        transform: scale(1.1);
+      }
+
+      span {
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <h1>Color Switcher</h1>
+      <span class="button" id="grey"></span>
+      <span class="button" id="white"></span>
+      <span class="button" id="blue"></span>
+      <span class="button" id="yellow"></span>
+      <h2>
+        Try clicking on one of the colors above
+        <span>to change the background color of this page!</span>
+      </h2>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll(".button");
+      //   console.log(buttons);
+      const body = document.querySelector("body");
+      buttons.forEach(function (button) {
+        // console.log(button);
+        //add event listener to each button because we want to change the color of the body
+        // button.addEventListener("click", function () {
+        //   // console.log(button.id); // this will give us the id of the button that was clicked
+        //   // console.log(body.style.backgroundColor); // this will give us the background color of the body
+        //   body.style.backgroundColor = button.id; // this will change the background color of the body to the id of the button that was clicked
+        //   // console.log(body.style.backgroundColor);
+        // });
+
+        //or
+        button.addEventListener('click', function(e){
+            console.log(e); // this will give us the event object
+            console.log(e.target);  // this will give us the target of the event
+
+            if(e.target.id === 'grey'){
+                body.style.backgroundColor = 'grey';
+            }
+            else if(e.target.id === 'white'){
+                body.style.backgroundColor = 'white';
+            }
+            else if(e.target.id === 'blue'){
+                body.style.backgroundColor = 'blue';
+            }
+            else if(e.target.id === 'yellow'){
+                body.style.backgroundColor = 'yellow';
+            }
+            
+        })
+      });
+    </script>
+  </body>
+</html>
