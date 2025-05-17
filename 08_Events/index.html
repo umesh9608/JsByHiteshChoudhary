@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htnml Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // 1. Basic click event using onclick (commented out)
+    // This method adds a click handler directly to an element with ID 'owl'
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+    // 2. Legacy event handling method (not used in modern browsers)
+    // attachEvent() — was used in older versions of IE
+
+    // 3. jQuery method for event handling
+    // jQuery uses `.on()` method to attach events
+
+    // 4. Common Event Properties
+    // type, timestamp, defaultPrevented — event meta info
+    // target, toElement, srcElement, currentTarget — info about which element triggered or is handling the event
+    // clientX, clientY — position of mouse in the viewport
+    // screenX, screenY — position of mouse in the physical screen
+    // altKey, ctrlKey, shiftKey — check if modifier keys were pressed
+    // keyCode — identifies which key was pressed
+
+    // 5. Event bubbling: Parent element click handler
+    // This adds a click listener on the <ul> with ID 'images'
+    // It triggers when anything inside the list is clicked
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // 6. Child element click handler with stopPropagation
+    // Prevents the event from bubbling up to parent
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()
+    // }, false)
+
+    // 7. Preventing default behavior and stopping propagation
+    // Typically used when clicking on links to prevent navigation
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault(); // stops link from navigating
+    //     e.stopPropagation(); // stops event bubbling
+    //     console.log("google clicked");
+    // }, false)
+
+    // 8. Event Delegation
+    // Attaches a single event listener to the parent <ul>
+    // Detects clicks on <img> tags and removes their parent <li>
+    document.querySelector("#images").addEventListener("click", function (e) {
+      console.log(e.target.tagName); // Logs the clicked tag
+      if (e.target.tagName === "IMG") {
+        console.log(e.target.id); // Logs the ID of the clicked image
+        let removeIt = e.target.parentNode; // Gets the <li> element
+        removeIt.remove(); // Removes the <li> from the DOM
+      }
+
+      // Alternative older method:
+      // removeIt.parentNode.removeChild(removeIt)
+    });
+  </script>
+</html>
