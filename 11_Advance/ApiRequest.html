@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub API Example</title>
+</head>
+<body>
+
+  <script>
+    // Step 1: Define the GitHub API URL for a specific user
+    const requestUrl = 'https://api.github.com/users/seema';
+
+    // Step 2: Create a new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+
+    // Step 3: Open a GET request to the API URL
+    xhr.open('GET', requestUrl);
+
+    // Step 4: Define what happens when the request state changes
+    xhr.onreadystatechange = function () {
+      console.log("Ready State:", xhr.readyState); // Logs the current state of the request
+
+      // Step 5: When the request is complete (state 4)
+      if (xhr.readyState === 4) {
+        // Step 6: Parse the response JSON string into an object
+        const data = JSON.parse(this.responseText);
+
+        // Step 7: Log the type and the followers count
+        console.log("Type of data:", typeof data); // Should be 'object'
+        console.log("Followers count:", data.followers); // Output the number of followers
+      }
+    };
+
+    // Step 8: Send the HTTP request
+    xhr.send();
+  </script>
+
+</body>
+</html>

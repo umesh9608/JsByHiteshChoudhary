@@ -1,0 +1,20 @@
+in js :- Synchronous
+       Single Threaded
+
+-> Execution Context:
+    .execution one line code at a time
+    . consloe log-1
+    .consloe log-2
+    .
+    .
+    .
+     Call stack  | heap memory
+
+
+.each operation waits for the last one to complete before execution
+
+
+//Blocking code vs non Blocking code
+ :-Blocking code; block  the flow of program(read file sync) learn more in node js
+
+ :-Non Blocking code;- does not bloke the execution(read file Async)
